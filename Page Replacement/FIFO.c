@@ -3,7 +3,7 @@
 void fifo(int totalPages, int pages[], int frameNo){
     int pointer=0;
     int pageMiss=0, pageHit=0;
-    int pageFrame[4];
+    int pageFrame[frameNo];
 
         
     for (int i = 0; i < frameNo; i++)
@@ -16,14 +16,13 @@ void fifo(int totalPages, int pages[], int frameNo){
 
         //check if current item is already in pageframe or not.
         for (int j = 0; j < frameNo; j++){
-
             if (pageFrame[j]==pages[i]){
                 pageHit++;
                 flag=1;
                 break;
             }
         }
-        
+        // if item is not in page frame then take to pageframe and increment page miss.
         if (flag==0)
         {
             pageFrame[pointer]=pages[i];
