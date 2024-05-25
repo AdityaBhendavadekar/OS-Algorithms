@@ -40,23 +40,22 @@ void scan(int arr[], int head, int size){
 // for right side.
     for(int i=index;i<size;i++){
         current = arr[i];
-        printf(" %d ", current);
-        sequence[count++];
+        sequence[count++]=current;
         distance = abs(current-head);
         seek_count +=distance;
         head = current;
     }
 
 //for remaining left side
-    // if(index>0){
-    //     for(int i=index-1;i>=0;i--){
-    //         current = arr[i];
-    //         sequence[count++];
-    //         distance = abs(current-head);
-    //         seek_count += distance;
-    //         head = current;
-    //     }
-    // }
+    if(index>0){
+        for(int i=index-1;i>=0;i--){
+            current = arr[i];
+            sequence[count++]=current;
+            distance = abs(current-head);
+            seek_count += distance;
+            head = current;
+        }
+    }
 
     printf(" %d ", seek_count);
     printf("\nSequence: ");
