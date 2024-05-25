@@ -9,6 +9,7 @@ int findNotRecent(int pageFrame[], int pages[], int index, int totalPages, int t
     tempFrame[i] = pageFrame[i];
   }
   
+  // checking which page is being not used in near future.
   for(int i = index; i < totalPages; i++){
     for(int k = 0; k < total_frames; k++){
       if(tempFrame[k] == pages[i] && count > 1){
@@ -19,6 +20,7 @@ int findNotRecent(int pageFrame[], int pages[], int index, int totalPages, int t
     }
   }
   
+  // checking index of which 1 page is remaining in page frame
   for(int i = 0; i < total_frames; i++){
     if(tempFrame[i] >= 0){
       optind = i;
@@ -29,7 +31,7 @@ int findNotRecent(int pageFrame[], int pages[], int index, int totalPages, int t
   return optind;
 }
 
-void lru(int total_pages, int pages[], int total_frames){
+void optimal(int total_pages, int pages[], int total_frames){
     int pagemiss = 0, pagehit = 0;
     int pageFrame[total_frames];
     int flag;
@@ -90,7 +92,7 @@ int main(){
     printf("Enter size of page frame: ");
     scanf("%d", &pageFrameSize);
 
-    lru(total_pages, pages, pageFrameSize);
+    optimal(total_pages, pages, pageFrameSize);
 
     return 0;
 }

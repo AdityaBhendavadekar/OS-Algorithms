@@ -29,7 +29,7 @@ int findNotRecent(int pageFrame[], int pages[], int index, int total_frames){
   return lruind;
 }
 
-void lru(int total_pages, int pages[], int total_frames){
+void optimal(int total_pages, int pages[], int total_frames){
     int pagemiss = 0, pagehit = 0;
     int pageFrame[total_frames];
     int flag;
@@ -90,7 +90,7 @@ int main(){
     printf("Enter size of page frame: ");
     scanf("%d", &pageFrameSize);
 
-    lru(total_pages, pages, pageFrameSize);
+    optimal(total_pages, pages, pageFrameSize);
 
     return 0;
 }
